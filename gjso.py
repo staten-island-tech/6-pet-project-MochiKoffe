@@ -8,4 +8,11 @@ class Calculator():
     def subtract (numbers):
         return numbers
 Calculator.add(5,6)
-Calculator.subtract(98)
+
+class Hero:
+    def __init__(self, name, money, inventory): 
+        self.name = name
+        self.money = money
+        self.inventory = inventory
+    def buy(self, item): 
+        
