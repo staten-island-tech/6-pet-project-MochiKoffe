@@ -52,11 +52,26 @@ class Pet:
     def __init__(self, name, happiness): 
         self.name = name
         self.__happiness = happiness
-    def play(self, time): 
-        self.__happiness += int(time)
+    def play(self, play): 
+        self.__happiness += int(play)
     def show_status(self): 
         print(f"{self.name}) is {self.__happiness}")
 
 Meow = Pet("Meow", 1)
-Meow.play(time = 9)
+Meow.play(play = 9)
 print(Meow.__dict__ )
+
+class Hero: 
+    def __init__(self, name, money, inventory): 
+        self.name = name
+        self.__money = money
+        self.__inventory = inventory
+    def spend (self, price, item): 
+        self.__inventory.append(item)
+        self.__money -= int(price)
+    def aa(self): 
+        print(f"{self.name}) has {self.__money}")
+Alfred = Hero("Alfred", 90, ["dagger"])
+Alfred.spend(price = 10)
+Alfred.spend(item = ({"bread": "food", "hunger": 20}))
+print(Alfred.__dict__ )
