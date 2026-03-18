@@ -66,12 +66,12 @@ class Hero:
         self.name = name
         self.__money = money
         self.__inventory = inventory
-    def spend (self, price, item): 
+    def spend (self, spend, item): 
         self.__inventory.append(item)
-        self.__money -= int(price)
+        self.__money -= int(spend)
     def aa(self): 
         print(f"{self.name}) has {self.__money}")
 Alfred = Hero("Alfred", 90, ["dagger"])
-Alfred.spend(price = 10)
-Alfred.spend(item = ({"bread": "food", "hunger": 20}))
+Alfred.spend(spend = 10)
+Alfred.spend({"bread": "food", "hunger": 20})
 print(Alfred.__dict__ )
