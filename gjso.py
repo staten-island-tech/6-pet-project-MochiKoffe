@@ -35,7 +35,7 @@ sabrina = BankAccount("Sabrina", 2)
 sabrina.deposit({"amount": 67})
 print(sabrina.__dict__ ) """
 
-class Hero: 
+""" class Hero: 
     def __init__(self, name, money, inventory): 
         self.name = name
         self.money = money
@@ -46,9 +46,9 @@ class Hero:
 
 Isaac = Hero("Isaac", 50000, ["quill"])
 Isaac.buy({"title": "book", "pages": 90})
-print(Isaac.__dict__ )
+print(Isaac.__dict__ ) """
 
-class Pet: 
+""" class Pet: 
     def __init__(self, name, happiness): 
         self.name = name
         self.__happiness = happiness
@@ -59,19 +59,22 @@ class Pet:
 
 Meow = Pet("Meow", 1)
 Meow.play(play = 9)
-print(Meow.__dict__ )
+print(Meow.__dict__ ) """
 
-class Hero: 
+""" class Hero: 
     def __init__(self, name, money, inventory): 
         self.name = name
         self.__money = money
         self.__inventory = inventory
-    def spend (self, spend, item): 
+    def spend (self, item): 
         self.__inventory.append(item)
+    def shh (self, spend):
         self.__money -= int(spend)
     def aa(self): 
         print(f"{self.name}) has {self.__money}")
 Alfred = Hero("Alfred", 90, ["dagger"])
-Alfred.spend(spend = 10)
-Alfred.spend({"bread": "food", "hunger": 20})
-print(Alfred.__dict__ )
+Alfred.shh(spend = 10)
+Alfred.spend("bread")
+print(Alfred.__dict__ ) """
+
+
