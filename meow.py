@@ -6,17 +6,13 @@ wards = {
 }
 
 def departments(wards): 
-    staff = {} 
+    staff = {}
     for dept, docs in wards.items(): 
-        """ print(dept, docs) """
-        jobs = []
         for doc in docs: 
-            if dept in staff: 
-                jobs.append(dept)
+            if doc not in staff: 
+                staff[doc] = [dept]
             else: 
-                staff[doc] = {
-                    "job" == jobs
-                }
-        print(staff)
+                staff[doc].append(dept)
+    print(staff)
 
 departments(wards)
