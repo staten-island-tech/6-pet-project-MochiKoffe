@@ -78,7 +78,7 @@ Alfred.spend("bread")
 print(Alfred.__dict__ ) """
 
 
-class User: 
+""" class User: 
     def __init__(self, name, email): 
         self.name = name
         self.email = email
@@ -131,4 +131,18 @@ admin = Administrator("Karl", "unnamedprussianofficer@gnb.com", "Officer")
 print(admin.manage_system())
 
 my_teacher = Teacher("Jacob", "jacob@gnb.com", "Engineer")
-print(my_teacher.display_info())
+print(my_teacher.display_info()) """
+
+
+class Pet: 
+    def __init__(self, name, happiness): 
+        self.name = name
+        self.__happiness = happiness
+    def play(self, play): 
+        self.__happiness += int(play)
+    def show_status(self): 
+        print(f"{self.name}) is {self.__happiness}")
+
+Bauwow = Pet("Bauwow", 1)
+Bauwow.play(play = 9)
+print(Bauwow.__dict__ )
