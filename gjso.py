@@ -135,14 +135,73 @@ print(my_teacher.display_info()) """
 
 
 class Pet: 
-    def __init__(self, name, happiness): 
+    def __init__(self, name, happiness = 10, hunger = 10, clean = 10, living = True):
         self.name = name
-        self.__happiness = happiness
-    def play(self, play): 
-        self.__happiness += int(play)
-    def show_status(self): 
-        print(f"{self.name}) is {self.__happiness}")
+        self.happiness = happiness
+        self.hunger = hunger
+        self. clean = clean
+        self.living = living
+    def statDec(self): 
+        self.clean -= 2
+        self.happiness -= 4
+        self.hunger -= 1
+    def warnings(self): 
+        if self.hunger <=5: 
+            print(f"{self.name} is hungry...")
+        if self.happiness <= 5: 
+            print(f"{self.name} is unhappy...")
+        if self.clean <= 5: 
+            print(f"{self.name} is dirty...")
+        if self.hunger >= 8: 
+            print(f"{self.name} is full")
+        if self.happiness >= 8: 
+            print(f"{self.name} is happy")
+        if self.clean >= 8: 
+            print(f"{self.name} is so clean") 
+print("*drops cat on you* here's your little pet, take care of it now.")
+Userinput = input("Name your cat")
+petOne = Pet(Userinput)
+Userinput2 = True
 
-Bauwow = Pet("Bauwow", 1)
-Bauwow.play(play = 9)
-print(Bauwow.__dict__ )
+
+while petOne.living == True: 
+    petOne.warnings()
+    Userinput = input(f"What would you like to do? clean, play, watch, or feed?")
+    Userinput = Userinput.lower()
+    if "clean" in Userinput: 
+        print("*clean clean*") 
+        petOne.clean=10
+        petOne.happiness -=3
+        petOne.statDec()
+    elif "play" in Userinput: 
+        print(f"yayayyay") 
+        petOne.happiness += 5
+        petOne.hunger -= 2
+        petOne.clean -= 3
+        if petOne.happiness > 10:
+            petOne.happiness = 10
+        petOne.statDec()
+    elif "feed" in Userinput: 
+        print("yumyum") 
+        petOne.hunger = 10
+        petOne.happiness +=3
+        petOne.statDec()
+    elif "watch" in Userinput: 
+        petOne.statDec()
+    else: 
+        print("Sorry, invalid, try again") 
+    if petOne.clean <= 0 or petOne.happiness <= 0 or petOne.hunger <= 0: 
+        petOne.living = False
+        break
+    if petOne.clean <= 0: 
+        petOne.living = False
+        print(f"{petOne}'s hygiene was neglected") 
+        break
+    if petOne.hunger <= 0: 
+        petOne.living = False
+        print(f"{petOne} starved...") 
+        break
+    if petOne.happiness <= 0: 
+        petOne.living = False
+        print(f"{petOne} is too unhappy.") 
+        break
