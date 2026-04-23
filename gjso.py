@@ -148,16 +148,27 @@ class Pet:
     def warnings(self): 
         if self.hunger <80: 
             print(f"{self.name} is hungry...")
+        elif self.hunger >= 80: 
+            print(f"{self.name} is full")
         if self.happiness < 80: 
             print(f"{self.name} is unhappy...")
+        elif self.happiness >= 80: 
+            print(f"{self.name} is happy")
         if self.clean < 80: 
             print(f"{self.name} is dirty...")
-        if self.hunger >= 80: 
-            print(f"{self.name} is full")
-        if self.happiness >= 80: 
-            print(f"{self.name} is happy")
-        if self.clean >= 80: 
+        elif self.clean >= 80: 
             print(f"{self.name} is so clean") 
+    def impact1(self): 
+        self.clean = 100
+    def impact2(self): 
+        self.happiness = 100
+    def impact3 (self): 
+        self.hunger = 100
+    def dead(self): 
+        self.clean = 0
+        self.happiness = 0
+        self.hunger = 0
+
 print("*drops cat on you* here's your little pet, take care of it now.")
 Name = input("Name your cat")
 petOne = Pet(Name)
@@ -168,31 +179,32 @@ while petOne.living == True:
     Userinput = Userinput.lower()
     if "clean" in Userinput: 
         print("*clean clean*") 
-        petOne.clean=100
+        petOne.impact1()
         petOne.statDec()
     elif "play" in Userinput: 
         print(f"yayayyay") 
-        petOne.happiness += 30
+        petOne.impact2()
         petOne.statDec()
     elif "feed" in Userinput: 
         print("yumyum") 
-        petOne.hunger = 100
+        petOne.impact3()
         petOne.statDec()
     elif "watch" in Userinput: 
         petOne.statDec()
+    elif "kill" in Userinput: 
+        petOne.dead()
+        print(f"{Name} is DEAD")
     else: 
         print("Sorry, invalid, try again") 
-    if petOne.clean <= 0 or petOne.happiness <= 0 or petOne.hunger <= 0: 
-        petOne.living = False
     if petOne.clean <= 0: 
         petOne.living = False
-        print(f"{Name}'s hygiene was neglected") 
+        print(f"{Name}'s hygiene was neglected, it's DEAD") 
         break
     elif petOne.hunger <= 0: 
         petOne.living = False
-        print(f"{Name} starved...") 
+        print(f"{Name} starved..., it's DEAD") 
         break
     elif petOne.happiness <= 0: 
         petOne.living = False
-        print(f"{Name} is too unhappy.") 
+        print(f"{Name} is too unhappy, it's DEAD.") 
         break
